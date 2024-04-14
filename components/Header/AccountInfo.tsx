@@ -5,7 +5,7 @@ const AccountInfo = async () => {
 
     return(
       <section className="bg-[white] h-full flex items-center">
-        <UserButton>Hello</UserButton>
+        <UserButton></UserButton>
       </section>
     )
 }
