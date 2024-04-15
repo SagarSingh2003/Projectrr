@@ -22,6 +22,7 @@ const Header = () => {
             <AccountInfo />
         </section>
     )
+
 }
 
 export default Header;

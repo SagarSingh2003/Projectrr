@@ -1,6 +1,6 @@
 import { UserButton } from "@clerk/nextjs";
 
-const AccountInfo = async () => {
+const AccountInfo = () => {
 
 
     return(

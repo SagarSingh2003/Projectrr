@@ -1,11 +1,14 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import { redirect, useRouter } from "next/navigation"
 
 const AllProjectsComponent = ({userId } : {userId : string | undefined }) => {
 
     const [projectDetails , setProjectDetails] = useState<any>(false);
 
+    const router = useRouter();
+    
     const date = new Date();
 
     const dateString = date.toLocaleString();
@@ -49,8 +52,12 @@ const AllProjectsComponent = ({userId } : {userId : string | undefined }) => {
                     (projectDetails.length === 0 ? <div className="flex w-screen items-center justify-center">No Projects Available</div> : 
                     projectDetails.map((project : {id : string ,userId : string , projectname : string , projectData? : string}) => 
                         
-                        <section key={project.id} >
-                            <div className=" hover:shadow-md  w-[220px] flex flex-col items-center hover:shadow-[#E1DCD6]">
+                        <section onClick = {() => {
+                            console.log('getting on click....')
+                            router.push(`/projects/${project.projectname}`)
+                        }} key={project.id} >
+                            <div 
+                            className=" hover:shadow-md  w-[220px] flex flex-col items-center hover:shadow-[#E1DCD6]" >
                                 
                                 <div className=" h-[250px] w-full bg-[#FFFFFF] border border-[#E1DCD6]  border-b-0  hover:cursor-pointer ">
                                     
@@ -66,7 +73,10 @@ const AllProjectsComponent = ({userId } : {userId : string | undefined }) => {
                                             </g>
                                         </svg>
                                     </div>
-                                    <section className="flex flex-col ">
+                                    <section className="flex flex-col " onClick = {() => {
+                            console.log('getting on click....')
+                            router.push(`/projects/${project.projectname}`)
+                        }}>
                                         <div className="font-semibold truncate ... text-[14px] text-[#858D80] w-[100px] " title={project.projectname}>
                                             {project.projectname} 
                                         </div>

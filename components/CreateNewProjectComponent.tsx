@@ -23,11 +23,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
   
 import { useRef, useState } from "react";
-import { redirect } from "next/navigation"
+import router from "next/router"
 
 const api = "http://localhost:3000"
 
-const CreateNewProjectComponent = ({userId } : {userId : any}) => {
+export default function CreateNewProjectComponent ({userId } : {userId : any}) {
     
     const [showAlert , setShowAlert] = useState<{show : boolean , msg? : string}>({show : false});
     const [showCreateProjectBar , setShowCreateProjectBar] = useState(false);
@@ -36,7 +36,7 @@ const CreateNewProjectComponent = ({userId } : {userId : any}) => {
     const nameOfProjectRef = useRef();
 
     if( creationComplete && creationComplete.show){
-        redirect(`/projects/${nameOfProjectRef.current?.value}`)
+        router.push(`/projects/${nameOfProjectRef.current?.value}`)
     };
 
     console.log(nameOfProjectRef.current?.value , "name of project");
@@ -155,5 +155,4 @@ function createNewProject(projectName : string , userId : any , setCreationCompl
     })
 }
 
-export default CreateNewProjectComponent;
 
