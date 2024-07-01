@@ -22,18 +22,21 @@ export default function Page(){
 
     useEffect(() => {
         const canvas = canvasRef.current;
+        //@ts-expect-error
         const context = canvas?.getContext('2d');
-        
+        console.log("params......" , params.projectname);
+        console.log(`params ...... ${String(params.projectname)}`)
         context.fillStyle = 'white';
     }, []);
     
     return(
         <section className="flex flex-col h-screen w-screen ">
 
-            <section className="fixed top-[30px] left-[20px] w-[200px]">
+           
+            <section className="fixed top-[30px] left-[20px] min-w-[150px] flex items-center justify-center">
                 <Menubar>
                 <MenubarMenu>
-                        <MenubarTrigger>{params.projectname}</MenubarTrigger>
+                        <MenubarTrigger className="hover:bg-[#F1F5F9]">{ `${params.projectname.replace('%20' , " ")}` }</MenubarTrigger>
                     <MenubarContent>
                     <MenubarItem>
                         New Tab <MenubarShortcut>⌘T</MenubarShortcut>
@@ -45,15 +48,12 @@ export default function Page(){
                     <MenubarItem>Print</MenubarItem>
                     </MenubarContent>
                 </MenubarMenu>
-                <MenubarMenu>
-                        <MenubarTrigger >Go Back</MenubarTrigger>
-                    
-                </MenubarMenu>
                 </Menubar>
 
             </section>
 
             <section className=" h-full w-full ">
+                {/* @ts-expect-error */}
                 <canvas ref={canvasRef} id="canvas"  className=" h-[100%] w-[100%]  border shadow-lg shadow-[#E1DCD6] "></canvas>
             </section>   
     

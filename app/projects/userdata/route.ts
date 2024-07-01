@@ -47,6 +47,7 @@ export async function GET(request : Request){
     console.log('got get request');
     const { searchParams } = new URL(request.url)
 
+    // @ts-expect-error 
     const userId : string =  searchParams.get('userId') ;
     console.log(userId);
 

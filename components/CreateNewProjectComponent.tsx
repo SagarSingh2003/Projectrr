@@ -36,9 +36,11 @@ export default function CreateNewProjectComponent ({userId } : {userId : any}) {
     const nameOfProjectRef = useRef();
 
     if( creationComplete && creationComplete.show){
+        // @ts-expect-error 
         router.push(`/projects/${nameOfProjectRef.current?.value}`)
     };
 
+    //@ts-expect-error
     console.log(nameOfProjectRef.current?.value , "name of project");
 
     if (creationComplete && creationComplete.msg){
@@ -61,6 +63,7 @@ export default function CreateNewProjectComponent ({userId } : {userId : any}) {
                             <div className="grid w-full items-center gap-4">
                                     <div className="flex flex-col space-y-2.5">
                                     <Label  htmlFor="name">Name</Label>
+                                    {/* @ts-expect-error */}
                                     <Input  ref={nameOfProjectRef} id="name" placeholder="Name of your project" />
                                     </div>
                                     {showAlert.show ?     
@@ -89,7 +92,10 @@ export default function CreateNewProjectComponent ({userId } : {userId : any}) {
                             : 
                             
                             <Button className="bg-[#3794FF] hover:bg-[#4285F4] w-full" onClick={() => {
+                                // @ts-expect-error 
                                 if(nameOfProjectRef.current.value && (nameOfProjectRef.current.value).trim() !== ""){
+                                    
+                                    // @ts-expect-error 
                                     createNewProject(nameOfProjectRef.current.value , userId , setCreationComplete , setCreationStarted );
                                     setCreationStarted(true);
                                 }else{
