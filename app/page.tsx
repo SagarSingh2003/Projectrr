@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import CreateNewProjectComponent from "@/components/CreateNewProjectComponent";
 import AllProjectsComponent from "@/components/AllProjectsComponent";
 import {useUser } from "@clerk/nextjs";
-import router from "next/router";
 import { redirect } from "next/navigation";
  
 
