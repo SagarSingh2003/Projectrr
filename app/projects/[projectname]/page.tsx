@@ -11,7 +11,6 @@ import {
   } from "@/components/ui/menubar"
   
 import { redirect, useParams } from "next/navigation";
-import router from "next/router";
 import { useEffect, useRef } from "react";
 
 export default function Page(){
