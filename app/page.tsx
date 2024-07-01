@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
         <section className=" bg-[#FFFFFF] w-screen h-full ">
-        <button onClick={() => {
+        <button className="p-[10px] ml-[10px] mt-[10px] " onClick={() => {
                 // @ts-expect-error 
                 window.location = "https://github.com/apps/codearena-v0-0-1/installations/new"
             }}>Authorize</button>
