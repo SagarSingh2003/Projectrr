@@ -24,8 +24,7 @@ import { Label } from "@/components/ui/label"
   
 import { useRef, useState } from "react";
 import router from "next/router"
-
-const api = "http://localhost:3000"
+import api from "../api";
 
 export default function CreateNewProjectComponent ({userId } : {userId : any}) {
     

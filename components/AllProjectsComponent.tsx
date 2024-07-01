@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { redirect, useRouter } from "next/navigation"
 import { Skeleton } from "@/components/ui/skeleton"
+import api from "../api";
 
 const AllProjectsComponent = ({userId } : {userId : string | undefined }) => {
 
@@ -16,7 +17,7 @@ const AllProjectsComponent = ({userId } : {userId : string | undefined }) => {
 
     useEffect(() => {
 
-        fetch( `/projects/userdata?userId=${userId}` , {
+        fetch( `${api}/projects/userdata?userId=${userId}` , {
             "method" : "GET", 
         }).then((res)  => {
            res.json().then((response) => {
