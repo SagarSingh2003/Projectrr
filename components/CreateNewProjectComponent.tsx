@@ -23,7 +23,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
   
 import { useRef, useState } from "react";
-import router from "next/router"
+import {redirect} from "next/navigation";
+// import router from "next/router"
 import api from "../api";
 
 export default function CreateNewProjectComponent ({userId } : {userId : any}) {
@@ -36,7 +37,7 @@ export default function CreateNewProjectComponent ({userId } : {userId : any}) {
 
     if( creationComplete && creationComplete.show){
         // @ts-expect-error 
-        router.push(`/projects/${nameOfProjectRef.current?.value}`)
+        redirect(`/projects/${nameOfProjectRef.current?.value}`)
     };
 
     //@ts-expect-error
