@@ -25,7 +25,7 @@ import { Label } from "@/components/ui/label"
 import { useRef, useState } from "react";
 import router from "next/router"
 
-const api = "http://localhost:3000"
+const api = "https://projectrr.vercel.app/"
 
 export default function CreateNewProjectComponent ({userId } : {userId : any}) {
     
